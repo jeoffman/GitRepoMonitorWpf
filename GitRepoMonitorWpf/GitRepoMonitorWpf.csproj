@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Git.png" />
+    <None Remove="Resources\GitBranch.png" />
+    <None Remove="Resources\GitFolder.png" />
+    <None Remove="Resources\Images\cloud.png" />
+    <None Remove="Resources\Images\document.png" />
+    <None Remove="Resources\Images\download.png" />
+    <None Remove="Resources\Images\open-folder.png" />
+    <None Remove="Resources\Images\plus.folder.png" />
+    <None Remove="Resources\Images\save.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="4.4.0" />
+    <PackageReference Include="LibGit2Sharp" Version="0.26.2" />
+    <PackageReference Include="Microsoft.Alm.Authentication" Version="4.3.0" />
+    <PackageReference Include="NotifyPropertyChangedGenerator" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\cloud.png" />
+    <Resource Include="Resources\Images\document.png" />
+    <Resource Include="Resources\Images\download.png" />
+    <Resource Include="Resources\Images\Git.png" />
+    <Resource Include="Resources\Images\GitBranch.png" />
+    <Resource Include="Resources\Images\GitFolder.png" />
+    <Resource Include="Resources\Images\open-folder.png" />
+    <Resource Include="Resources\Images\plus.folder.png" />
+    <Resource Include="Resources\Images\save.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controls\" />
+  </ItemGroup>
+
+</Project>
