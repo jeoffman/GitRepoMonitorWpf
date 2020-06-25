@@ -52,6 +52,8 @@ namespace GitRepoMonitorWpf
 				}
 				Data.TreeData.Add(repoSet);
 			}
+			Properties.Settings.Default.LastFileUsed = filePath;
+			Properties.Settings.Default.Save();
 		}
 
 		void SaveFile(string filePath)
@@ -94,19 +96,20 @@ namespace GitRepoMonitorWpf
 			}
 		}
 
-		private void Window_Loaded(object sender, RoutedEventArgs rea)
+		private async void Window_Loaded(object sender, RoutedEventArgs rea)
 		{
-			string savePath = "save.xml";
 			try
 			{
-				LoadFile(savePath);
-
-				RefreshGitInfo();
+				if (File.Exists(Properties.Settings.Default.LastFileUsed))
+				{
+					LoadFile(Properties.Settings.Default.LastFileUsed);
+					await RefreshGitInfo();
+				}
 			}
 			catch (FileNotFoundException exc)
 			{
 				Debug.WriteLine(exc);
-				MessageBox.Show(this, "TODO: last saved file name");
+				MessageBox.Show(this, exc.ToString());
 			}
 		}
 
