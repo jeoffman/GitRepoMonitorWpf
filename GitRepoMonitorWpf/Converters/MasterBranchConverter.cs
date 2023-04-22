@@ -12,7 +12,7 @@ namespace GitRepoMonitorWpf.Converters
         {
             if (value is string text)
             {
-                if (text == "master")
+                if (text == "master" || text == "main")
                 {
                     return new SolidColorBrush(Colors.Black);
                 }
